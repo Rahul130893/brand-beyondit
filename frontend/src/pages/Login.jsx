@@ -21,14 +21,17 @@ export const Login = () => {
         e.preventDefault()
 
         try {
-            let response = await fetch("http://localhost:3600/login", {
-              method: "POST",
+            let response = await fetch(
+              "https://brand-beyondit.herokuapp.com/login",
+              {
+                method: "POST",
 
-              headers: {
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(formData),
-            });
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(formData),
+              }
+            );
 
             let data = await response.json()
             console.log(data)
@@ -54,22 +57,30 @@ export const Login = () => {
       <div>
         <h3>login page</h3>
         <div>
-          <form onSubmit={submitHandle}>
-            <input
-              onChange={handleChange}
-              type="email"
-              name="email"
-              placeholder="Enter Email"
-              required
-            />
-            <input
-              onChange={handleChange}
-              type="text"
-              name="password"
-              placeholder="Enter password"
-              required
-            />
-            <input type={"submit"} value="submit" />
+          <form onSubmit={submitHandle} className="registerBox">
+            <div>
+              <label for="email" >Enter Email</label>
+              <input
+                onChange={handleChange}
+                type="email"
+                name="email"
+                placeholder="Enter Email"
+                required
+              />
+            </div>
+            <div>
+              <label >Enter Password</label>
+              <input
+                onChange={handleChange}
+                type="password"
+                name="password"
+                placeholder="Enter password"
+                required
+              />
+            </div>
+            <div>
+              <input className="submit" type={"submit"} value="submit" />
+            </div>
           </form>
         </div>
       </div>

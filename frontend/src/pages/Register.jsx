@@ -1,6 +1,6 @@
 import { useState } from "react"
 import {useNavigate} from "react-router-dom"
-
+import "../App"
 export const Register = () => {
     const navigate = useNavigate()
     
@@ -21,7 +21,7 @@ export const Register = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
-      let res = await fetch("http://localhost:3600/register", {
+      let res = await fetch("https://brand-beyondit.herokuapp.com/register", {
         method: "POST",
 
         headers: {
@@ -32,7 +32,8 @@ export const Register = () => {
 
       let data = await res.json();
       console.log(data.token);
-      if (data.token) {
+        if (data.token) {
+          alert("registration successfull redirecting to Login")
         navigate("/login", { replace: true });
       } else {
         alert("fill correctly");
@@ -47,22 +48,30 @@ export const Register = () => {
       <div>
         <h2>register page</h2>
         <div>
-          <form onSubmit={handlesubmit}>
-            <input
-              onChange={handleChange}
-              type="email"
-              name="email"
-              placeholder="Enter Email"
-              required
-            />
-            <input
-              onChange={handleChange}
-              type="text"
-              name="password"
-              placeholder="Enter password"
-              required
-            />
-            <input type={"submit"} value="submit" />
+          <form onSubmit={handlesubmit} className="registerBox">
+            <div>
+              <label for="name">Enter Email</label>
+              <input
+                onChange={handleChange}
+                type="email"
+                name="email"
+                placeholder="Enter Email"
+                required
+              />
+            </div>
+            <div>
+              <label for="password">Enter Password</label>
+              <input
+                onChange={handleChange}
+                type="password"
+                name="password"
+                placeholder="Enter password"
+                required
+              />
+            </div>
+            <div>
+              <input className="submit" type={"submit"} value="submit" />
+            </div>
           </form>
         </div>
       </div>

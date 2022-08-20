@@ -13,6 +13,49 @@
   }
 }
 
+.registerBox{
+  display: flex;
+  justify-content: center;
+  gap:50px;
+  margin: auto;
+  width:30%;
+  height: 400px;
+  flex-direction: column;
+  border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+.registerBox> div{
+  display: flex;
+ 
+  flex-direction: column;
+ 
+  padding: 10px;
+}
+label{
+  font-size: 20px;
+  
+  width: 80%;
+  text-align: left;
+   margin-left: 20px;
+  
+}
+input{
+  width:85%;
+  padding-left: 10px;
+  height: 30px;
+  margin-top: 20px;
+ margin-left: 20px;
+}
+.submit{
+  width:50%;
+  height: 50px;
+  margin: auto;
+  border: none;
+  background-color: rgb(127, 127, 201);
+  color: white;
+  font-weight: 700;
+  font-size: 20px;
+}
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
