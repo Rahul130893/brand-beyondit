@@ -1,9 +1,16 @@
 const express= require("express")
 const connect= require("./configs/db")
-const mongoose = require("mongoose")
-
+const cors = require("cors");
+const { register, login } = require("./controllers/auth.controller");
 const app = express()
-const port= 3500
+ app.use(cors());
+app.use(express.json());
+ 
+
+app.post("/register", register);
+
+app.post("/login", login);
+const port= 3600
 app.listen(port, async () => {
     try {
         await connect()
