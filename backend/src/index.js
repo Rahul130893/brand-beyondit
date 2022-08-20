@@ -6,11 +6,17 @@ const app = express()
  app.use(cors());
 app.use(express.json());
  
-
+const dotenv = require("dotenv");
+dotenv.config();
 app.post("/register", register);
 
 app.post("/login", login);
-const port= 3600
+
+app.get("/user", (req, res) => {
+    return res.send("users")
+})
+const port = process.env.PORT || 3600
+
 app.listen(port, async () => {
     try {
         await connect()
